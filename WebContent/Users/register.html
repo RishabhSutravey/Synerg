@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript" src="../resources/angular.min.js"></script>
+</head>
+<body data-ng-app="registerApp">
+	<form role="form" data-ng-submit="submit()" action=""
+		data-ng-controller="userctrl">
+		username: <input type="text" data-ng-model="username"> <br>
+		E-Mail: <input type="email" data-ng-model="mail"> <br>
+		Password:<input type="text" data-ng-model="password"> Mobile:<input
+			type="number" data-ng-model="mobile"> Date of Birth:<input
+			type="date" data-ng-model="dob"> Role:<input type="text"
+			data-ng-model="role"> Address:
+		<textarea draggable="false" rows="13" data-ng-model="address"></textarea>
+		Gender<input type="radio" data-ng-model="gender" value="male">Male
+		<input type="radio" data-ng-model="gender" value="female">female
+		<button type="submit">Save Blog</button>
+	</form>
+	<script type="text/javascript" src="userctrl.js"></script>
+</body>
+</html>

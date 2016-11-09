@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript" src="../resources/angular.min.js"></script>
+<body data-ng-app="forumApp">
+<form role="form" data-ng-submit="submit()"
+		 action="" data-ng-controller="forumctrl">
+		name: <input type="text" data-ng-model="name"> <br>
+		topic: <input type="text" data-ng-model="topic"> <br>
+userid:<input type="text" data-ng-model="userid">		
+
+				
+		Address:
+		<textarea draggable="false" rows="13" data-ng-model="description"></textarea>
+		
+			<button type="submit">Create Forum</button>
+	</form>
+	<div data-ng-init="getAllForum()">
+	<div data-ng-repeat="forum in forums">
+	{{forum.name}}
+	{{forum.topic}}
+	{{forum.description}}
+	<button data-ng-click="deleteforum(forum.id)">delete</button>
+	</div>
+	</div>
+	<script type="text/javascript" src="forumctrl.js"></script>
+</body>
+</html>

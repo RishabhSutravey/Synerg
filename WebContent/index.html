@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript" src="resources/angular.min.js"></script>
+<script type="text/javascript" src="resources/angular-route.js"></script>
+<script type="text/javascript" src="Blog/blogctrl.js"></script>
+<script type="text/javascript" src="Forum/forumctrl.js"></script>
+<script type="text/javascript" src="Users/userctrl.js"></script>
+<script>
+var app = angular.module("myroute", ["ngRoute","myApp","forumApp","registerApp"]);
+app.config(function($routeProvider) {
+    $routeProvider
+    .when("/", {
+        templateUrl : "index.html"
+    })
+    .when("/blog", {
+        templateUrl : "Blog/blog.html",
+        controller :'blogcntrl'
+       
+    })
+    .when("/forum", {
+        templateUrl : "Forum/Forum.html",
+        controller :  'forumctrl'
+   
+    })
+    .when("/register",{
+    	templateUrl: "Users/register.html",
+    	controller: "userctrl"
+    });
+});
+</script>
+</head>
+<body data-ng-app="myroute">
+
+<a href="#blog">Blog</a>
+<a href="#forum">Forum</a>
+<a href="#register">Register here</a>
+<div data-ng-view></div>
+
+</body>
+</html>

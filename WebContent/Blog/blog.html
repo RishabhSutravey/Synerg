@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript"  src="../resources/angular.min.js"></script>
+</head>
+<body data-ng-app="myApp">
+	<h1>Blog</h1>
+	<div  data-ng-controller="blogcntrl">
+	<form role="form"  action="" data-ng-submit="submit()">
+	<input type="hidden" data-ng-model="id" >
+		Title: <input type="text" name="title" data-ng-model="title"> <br>
+		Userid: <input type="text"  data-ng-model="userid"> <br>
+	
+		 Blog Description
+		<textarea draggable="false" rows="10" name="content" data-ng-model="content"></textarea>
+			<button type="submit">Save Blog</button>
+	</form>
+	<input type="text" data-ng-model="search" placeholder="search blog">
+<div data-ng-init="getAllBlogs()">
+	 <div data-ng-repeat="blog in blogs | filter:search">
+{{blog.title}}
+	{{blog.content}}
+	<button data-ng-click="editblog(blog.id,blog.title,blog.content)">edit</button>
+		<button data-ng-click="deleteblog(blog.id)">delete</button>
+	</div> 
+	</div>
+	</div>
+
+		<script type="text/javascript" src="blogctrl.js"></script>
+</body>
+</html>
