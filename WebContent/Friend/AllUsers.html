@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript" src="allUsersCtrl.js"></script>
+</head>
+<body data-ng-app="allusers">
+<div data-ng-init="getAllUsers">
+<div data-ng-repeat="user in users | filter:search">
+{{user.username}}
+{{user.mail}}
+{{user.gender}}
+</div>
+</div>
+
+</body>
+</html>

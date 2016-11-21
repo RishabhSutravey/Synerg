@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript" src="loginctrl.js"></script>
+<script type="text/javascript" src="loginService.js"></script>
+</head>
+<body data-ng-app="app">
+<h2>Login</h2>
+<form action="" data-ng-submit="vm.login()">
+Username:
+<input type="text" data-ng-model="vm.username">
+Password:
+<input type="password" data-ng-model="vm.password">
+<button type="submit">Login</button>
+</form>
+
+</body>
+</html>
