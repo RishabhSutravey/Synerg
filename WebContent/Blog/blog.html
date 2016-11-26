@@ -4,30 +4,70 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 <script type="text/javascript"  src="../resources/angular.min.js"></script>
+<style type="text/css">
+.btn1 {
+    height: 30px;
+    position: absolute;
+    right: 0;
+    top: 5px;
+    border-radius:1px;
+}
+</style>
 </head>
 <body data-ng-app="myApp">
-	<h1>Blog</h1>
-	<div  data-ng-controller="blogcntrl">
-	<form role="form"  action="" data-ng-submit="submit()">
-	<input type="hidden" data-ng-model="id" >
-		Title: <input type="text" name="title" data-ng-model="title"> <br>
-		Userid: <input type="text"  data-ng-model="userid"> <br>
 	
-		 Blog Description
-		<textarea draggable="false" rows="10" name="content" data-ng-model="content"></textarea>
-			<button type="submit">Save Blog</button>
+	<div class="container">
+	<div  data-ng-controller="blogcntrl">
+	<form role="form" class="form-horizontal" action="" data-ng-submit="submit()">
+	<h2> Create Blog</h2>
+	<input type="hidden" data-ng-model="id" >
+	 <div class="form-group">
+                    <label for="title" class="col-sm-3 control-label">Title</label>
+                    <div class="col-sm-9">
+		 <input type="text" name="title" data-ng-model="title" class="form-control" autofocus> <br>
+		</div></div>
+		 <div class="form-group">
+                    <label for="description" class="col-sm-3 control-label">Description</label>
+                    <div class="col-sm-9">
+		<textarea draggable="false" rows="10" name="content" data-ng-model="content" class="form-control"></textarea>
+		</div></div>
+		 <div class="form-group">
+                    <div class="col-sm-9 col-sm-offset-3">
+			<button type="submit" class="btn btn-primary">Save Blog</button>
+			</div></div>
 	</form>
-	<input type="text" data-ng-model="search" placeholder="search blog">
+	</div>
+	<div class="container" style="padding-top:10px">
+	<div class="row">
+        <div class="col-md-4 col-md-offset-3">
+         <form action="" class="search-form">
+                <div class="form-group has-feedback">
+	<input type="text" data-ng-model="search" placeholder="search blog"  class="form-control">
+	 <span class="glyphicon glyphicon-search form-control-feedback"></span>
+	 </div>
+	 </form>
+	</div></div></div>
 <div data-ng-init="getAllBlogs()">
 	 <div data-ng-repeat="blog in blogs | filter:search">
-{{blog.title}}
-	{{blog.content}}
-	<button data-ng-click="editblog(blog.id,blog.title,blog.content)">edit</button>
-		<button data-ng-click="deleteblog(blog.id)">delete</button>
+
+	
+	<div class="container">
+	<div class="row">
+ <div class="span3">
+        	<div class="well">
+        		<h2 class="text-info">{{blog.title}}</h2>  
+        		<hr>        
+        		<p>{{blog.content}}</p>
+        		<hr>
+              <p><button data-ng-click="editblog(blog.id,blog.title,blog.content)">edit</button>
+		<button data-ng-click="deleteblog(blog.id)" class="btn btn-primary btn-danger">delete</button></p>
+        	</div>
+        </div></div></div>
+	
 	</div> 
 	</div>
 	</div>
-
+	
 		<script type="text/javascript" src="blogctrl.js"></script>
 </body>
 </html>

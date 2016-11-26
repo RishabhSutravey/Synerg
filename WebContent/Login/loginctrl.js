@@ -22,6 +22,7 @@ var app = angular.module('app',[]);
              AuthenticationService.Login(vm.username, vm.password, function (response) {	 
                 if (response.success) {
                 	console.log("setcred")
+               
                 	AuthenticationService.SetCredentials(vm.username, vm.password);
                     $location.path('/home');
                   

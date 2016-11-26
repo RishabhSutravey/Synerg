@@ -2,6 +2,7 @@ var app=angular.module('allusers',[]);
 app.controller('alluserctrl',['$scope','$http',function($scope,$http){
 	var BASE_URL = 'http://localhost:8083/CollabServer';
 	$scope.getAllUsers= function() {
+		console.log("usersctrl")
 		console.log("get all users")
 		$http({
 			method : 'GET',
