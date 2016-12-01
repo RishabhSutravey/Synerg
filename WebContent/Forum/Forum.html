@@ -4,7 +4,8 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 <script type="text/javascript" src="../resources/angular.min.js"></script>
-<body data-ng-app="forumApp">
+<body data-ng-app="myApp">
+
 <div class="container">
 <form role="form" data-ng-submit="submit()" class="form-horizontal"
 		 action="" data-ng-controller="forumctrl">
@@ -46,7 +47,7 @@
 	<div class="row">
  <div class="span3">
         	<div class="well">
-	<h2 class="text-info">{{forum.name}}</h2>
+<h2 class="text-info"><a href="" data-ng-click="getforum(forum.id)">{{forum.name}}</a></h2>	
 		<p ><span class="label label-info"><font size="3">{{forum.topic}}</font></span></p>
 		<hr>
 	<p>{{forum.description}}</p>

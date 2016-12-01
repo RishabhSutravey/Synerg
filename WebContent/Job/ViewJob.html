@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body data-ng-app="myApp">
+<div data-ng-init="getjobs()">
+<div data-ng-repeat="job in jobs">
+{{job.title}}
+{{job.company}}
+{{job.jobdetails}}
+{{job.lastdate | date:'dd/MM/yyyy'}}
+</div>
+</div>
+
+</body>
+</html>

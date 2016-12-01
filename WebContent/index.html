@@ -2,11 +2,10 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
+<title>Synerg</title>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 <script type="text/javascript" src="resources/angular.min.js"></script>
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script> -->
 <script type="text/javascript" src="resources/angular-route.js"></script>
 <script type="text/javascript" src="resources/angular-cookies.js"></script>
 <script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
@@ -22,13 +21,17 @@
 <script type="text/javascript" src="Friend/allUsersCtrl.js"></script>
 <script type="text/javascript" src="Chat/chatController.js"></script>
 <script type="text/javascript" src="Chat/chatService.js"></script>
+<script type="text/javascript" src="Job/jobctrl.js"></script>
+<script type="text/javascript" src="Forum/commentctrl.js"></script>
 <link rel="stylesheet" href="resources/navbar.css">
 <link rel="stylesheet" href="resources/login.css">
 <link rel="stylesheet" href="resources/register.css">
 <link rel="stylesheet" href="resources/search.css">
 <link rel="stylesheet" href="resources/user.css">
+<link rel="stylesheet" href="resources/comments.css">
+
 </head>
-<body data-ng-app="myroute" style="background-image:url(C:\Users\BHAVNA\Pictures\macbook-flat-silver.jpg)">
+<body data-ng-app="myApp" >
 <div class="container">
     <nav class="navbar navbar-default navbar-xs" role="navigation">
   <!-- Brand and toggle get grouped for better mobile display -->
@@ -44,6 +47,7 @@
       <li><a href="#forum">Forum</a></li>
      <li><a href="#users">Find Friends</a></li>
      <li><a href="#chat">Chat</a></li>
+     <li><a href="#jobs">Find Jobs</a></li>
      <!--  <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b class="caret"></b></a>
         <ul class="dropdown-menu">
@@ -57,10 +61,14 @@
         </ul>
       </li> -->
     </ul>
+    
     <ul class="nav navbar-nav navbar-right">
-     <li><a href="#register"><i class="glyphicon glyphicon-user"></i></a></li>
-     <li><a href="#login"><i class="glyphicon glyphicon-log-in"></i></a></li>
+     <li><a href="#register" data-ng-hide="globals.currentUser.islogged"><i class="glyphicon glyphicon-user"></i></a></li>
+     <li><a href="#login" data-ng-hide="globals.currentUser.islogged"><i class="glyphicon glyphicon-log-in"></i></a></li>
+     <li style="padding-top:15px;" data-ng-show="globals.currentUser.islogged">Welcome:{{globals.currentUser.username}}</li>
+    <li data-ng-show="globals.currentUser.islogged"><a href="" data-ng-click="vm.logout()">logout</a></li>
     </ul>
+    
   </div><!-- /.navbar-collapse -->
 </nav>
 </div>

@@ -1,4 +1,3 @@
-var app = angular.module('registerApp',[]);
 app.controller('userctrl', [ '$scope', '$http', function($scope, $http) {
 	var BASE_URL = 'http://localhost:8083/CollabServer';
 	$scope.submit = function() {

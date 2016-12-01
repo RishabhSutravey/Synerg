@@ -1,6 +1,4 @@
-var app= angular
-        .module('app')
-        .factory('AuthenticationService', AuthenticationService);
+app.factory('AuthenticationService', AuthenticationService);
  var BASE_URL = 'http://localhost:8083/CollabServer';
     AuthenticationService.$inject = ['$http', '$cookieStore', '$rootScope'];
     function AuthenticationService($http, $cookieStore, $rootScope) {
@@ -19,7 +17,7 @@ var app= angular
     		url:BASE_URL+'/login/'+username+'/'+password
     		}).success(function (response,data) {
     			if(data!=null){
-    				
+    		console.log("llog")
     				 response = { success: true };
                 } else {
                     response = { success: false, message: 'Username or password is incorrect' };
@@ -43,7 +41,8 @@ var app= angular
              $rootScope.globals = {
                  currentUser: {
                      username: username,
-                     authdata: authdata
+                     authdata: authdata,
+                     islogged:true
                  }
             };
  

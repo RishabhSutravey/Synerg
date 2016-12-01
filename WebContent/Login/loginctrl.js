@@ -1,15 +1,14 @@
-var app = angular.module('app',[]);
  app.controller('LoginController', LoginController);
 
-    LoginController.$inject = ['$location',  'AuthenticationService'];
+    LoginController.$inject = ['$location',  'AuthenticationService','$rootScope'];
  
-    function LoginController($location, AuthenticationService) {
+    function LoginController($location, AuthenticationService,$rootScope) {
 	 console.log("login controller")
         var vm = this;
  
         vm.login = login;
-        vm.logout=logout;
- 
+        vm.logout = logout;
+
        /* (function initController() {
         	console.log("reset")
             // reset login status
@@ -21,11 +20,12 @@ var app = angular.module('app',[]);
             console.log("login func")
              AuthenticationService.Login(vm.username, vm.password, function (response) {	 
                 if (response.success) {
-                	console.log("setcred")
-               
+               console.log("setcred")
+               $rootScope.username=vm.username;
+              $rootScope.islogged=true;
                 	AuthenticationService.SetCredentials(vm.username, vm.password);
                     $location.path('/home');
-                  
+                  $rootScope.islogged=true;
                 	
                 } else {
                 	console.log("error")
@@ -41,6 +41,7 @@ var app = angular.module('app',[]);
         		if(response.success){
         			AuthenticationService.ClearCredentials();
         			$location.path('/home');
+        			$rootScope.islogged=false;
         			
         		}else{
         			alert("error")
