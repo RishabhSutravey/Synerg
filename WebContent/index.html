@@ -5,6 +5,7 @@
 <title>Synerg</title>
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="resources/angular.min.js"></script>
 <script type="text/javascript" src="resources/angular-route.js"></script>
 <script type="text/javascript" src="resources/angular-cookies.js"></script>
@@ -19,6 +20,7 @@
 <script type="text/javascript" src="Login/loginService.js"></script>
 <script type="text/javascript" src="app.js"></script>
 <script type="text/javascript" src="Friend/allUsersCtrl.js"></script>
+<script type="text/javascript" src="Friend/myfriendsctrl.js"></script>
 <script type="text/javascript" src="Chat/chatController.js"></script>
 <script type="text/javascript" src="Chat/chatService.js"></script>
 <script type="text/javascript" src="Job/jobctrl.js"></script>
@@ -66,9 +68,9 @@
      <li><a href="#register" data-ng-hide="globals.currentUser.islogged"><i class="glyphicon glyphicon-user"></i></a></li>
      <li><a href="#login" data-ng-hide="globals.currentUser.islogged"><i class="glyphicon glyphicon-log-in"></i></a></li>
      <li style="padding-top:15px;" data-ng-show="globals.currentUser.islogged">Welcome:{{globals.currentUser.username}}</li>
-    <li data-ng-show="globals.currentUser.islogged"><a href="" data-ng-click="vm.logout()">logout</a></li>
-    </ul>
-    
+     <li data-ng-show="globals.currentUser.islogged"><a href="#myprofile">My Profile</a></li>
+     <li data-ng-show="globals.currentUser.islogged"><a href="" data-ng-click="vm.logout()">logout</a></li>
+    </ul>{{currentuser.id}}
   </div><!-- /.navbar-collapse -->
 </nav>
 </div>

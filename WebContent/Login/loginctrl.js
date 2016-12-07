@@ -21,8 +21,7 @@
              AuthenticationService.Login(vm.username, vm.password, function (response) {	 
                 if (response.success) {
                console.log("setcred")
-               $rootScope.username=vm.username;
-              $rootScope.islogged=true;
+               
                 	AuthenticationService.SetCredentials(vm.username, vm.password);
                     $location.path('/home');
                   $rootScope.islogged=true;

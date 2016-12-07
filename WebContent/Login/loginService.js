@@ -11,13 +11,17 @@ app.factory('AuthenticationService', AuthenticationService);
  
         return service;
  
-        function Login(username, password, callback,$scope) {
+        function Login(username, password, callback) {
         	$http({
     			method:'GET',
-    		url:BASE_URL+'/login/'+username+'/'+password
-    		}).success(function (response,data) {
+    		   url:BASE_URL+'/login/'+username+'/'+password
+    		}).success(function (response,data,status,headers,config) {
+    			$rootScope.currentuser=response;
+    			console.log(response)
+    			console.log(data)
+    			console.log(status)
     			if(data!=null){
-    		console.log("llog")
+    				
     				 response = { success: true };
                 } else {
                     response = { success: false, message: 'Username or password is incorrect' };
@@ -48,11 +52,13 @@ app.factory('AuthenticationService', AuthenticationService);
  
             $http.defaults.headers.common['Authorization'] = 'Basic ' + authdata; // jshint ignore:line
             $cookieStore.put('globals', $rootScope.globals);
+            $cookieStore.put('currentuser',$rootScope.currentuser);
         }
  
         function ClearCredentials() {
             $rootScope.globals = {};
             $cookieStore.remove('globals');
+            $cookieStore.remove('uid');
             $http.defaults.headers.common.Authorization = 'Basic';
         }
     }

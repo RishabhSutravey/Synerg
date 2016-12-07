@@ -7,6 +7,8 @@
 <script type="text/javascript" src="../resources/angular.min.js"></script>
 </head>
 <body data-ng-app="myApp">
+<a href="#myfriends">My Friends</a>
+<a href="#newrequests">My Requests</a>
 <div data-ng-controller="alluserctrl">
 <div class="container" style="padding-top:10px">
 	<div class="row">
@@ -52,7 +54,7 @@
                                         <a href="#">{{user.mail}}</a>
                                     </td>
                                     <td style="width: 20%;">
-                                      <button data-ng-click="sendrequest(user.id)" class="btn btn-success">Send Request</button>  
+                                      <button data-ng-click="sendrequest(user.username)" class="btn btn-success">Send Request</button>  
                                     </td>
                                 </tr>
                                 </tbody>

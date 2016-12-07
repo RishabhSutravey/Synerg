@@ -41,13 +41,25 @@ app.config(function($routeProvider,$locationProvider) {
     .when("/individualforum",{
     	templateUrl: "Forum/IndividualForum.html",
 	controller: "commentctrl"
+    })
+    .when("/myprofile",{
+    	templateUrl: "Users/UserProfile.html",
+    	controller: "userctrl"
+    })
+    .when("/myfriends",{
+    	templateUrl: "Friend/MyFriends.html",
+    	controller: "myfriendctrl"
+    })
+    .when("/newrequests",{
+    	templateUrl: "Friend/newrequests.html",
+    	controller: "myfriendctrl"
     });
     console.log("route");    });
 run.$inject = ['$rootScope', '$location', '$cookieStore', '$http'];
 function run($rootScope, $location, $cookieStore, $http) {
     // keep user logged in after page refresh
     $rootScope.globals = $cookieStore.get('globals') || {};
-  
+    $rootScope.currentuser = $cookieStore.get('currentuser') || {};
     if ($rootScope.globals.currentUser) {
         $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata; // jshint ignore:line
     }

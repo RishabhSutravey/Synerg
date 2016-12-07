@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body data-ng-app="myApp">
+<div data-ng-controller="userctrl">
+{{uid.id}}
+{{globals.currentUser.islogged}}
+<div data-ng-init="currentuser(uid.id)">
+{{oneuser.username}}
+{{oneuser.mail}}
+{{oneuser.mobile}}
+{{oneuser.address}}
+</div>
+</div>
+</body>
+</html>

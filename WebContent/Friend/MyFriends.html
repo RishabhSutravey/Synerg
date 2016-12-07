@@ -4,7 +4,13 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body>
-
+<body data-ng-app="myApp">
+<div data-ng-controller="myfriendctrl">
+<div data-ng-init="getmyfriends()">
+<div data-ng-repeat="myfriend in myfriends">
+{{myfriend.friendid}}
+</div>
+</div>
+</div>
 </body>
 </html>

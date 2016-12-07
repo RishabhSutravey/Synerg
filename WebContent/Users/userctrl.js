@@ -1,5 +1,6 @@
-app.controller('userctrl', [ '$scope', '$http', function($scope, $http) {
+app.controller('userctrl', [ '$scope', '$http','$rootScope','$cookieStore', function($scope, $http,$rootScope,$cookieStore) {
 	var BASE_URL = 'http://localhost:8083/CollabServer';
+	
 	$scope.submit = function() {
 		
 		$scope.users = {	
@@ -30,4 +31,14 @@ app.controller('userctrl', [ '$scope', '$http', function($scope, $http) {
 			alert("error");
 		});
 	};
+	$scope.currentuser=function(id){
+		
+		console.log("oneuser")
+		$http({
+			method:'GET',
+			url:BASE_URL+'/oneuser/'+id
+		}).success(function(data,status,headers,config){
+			$scope.oneuser=data;
+		})
+	}
 }]);
