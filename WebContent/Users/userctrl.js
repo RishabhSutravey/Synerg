@@ -31,14 +31,53 @@ app.controller('userctrl', [ '$scope', '$http','$rootScope','$cookieStore', func
 			alert("error");
 		});
 	};
-	$scope.currentuser=function(id){
+	$scope.currentuser=function(){
 		
 		console.log("oneuser")
 		$http({
 			method:'GET',
-			url:BASE_URL+'/oneuser/'+id
+			url:BASE_URL+'/oneuser'
 		}).success(function(data,status,headers,config){
 			$scope.oneuser=data;
+			$scope.img = data.image
 		})
-	}
+	};
+	$scope.uploadFile = function(files) {
+	    var image = new FormData();
+	    //Take the first selected file
+	    image.append("file", files[0]);
+
+	    $http.post(BASE_URL+'/imageUpload', image, {
+	        withCredentials: true,
+	        headers: {'Content-Type': undefined },
+	        transformRequest: angular.identity
+	    }).success(function(data, status, headers, config) {
+			alert("success")
+			 $scope.reloadPage = function()                                                
+                   {
+                     $window.location.reload();
+                   }
+			console.log(image)
+		}).error(function(data, status, headers, config) {
+			alert("error")
+		});
+
+	};
+	/*$scope.profileimage= function() {
+		$http({
+			method : 'GET',
+			url : BASE_URL+'/profileimage',
+		}).success(function(data, status, headers, config) {
+			$scope.img = data.image
+			
+		}).error(function(data, status, headers, config) {
+			alert("Error");
+		});
+	};*/
+	   $(function() {
+		   console.log("edit")
+		    $('#profile-image1').on('click', function() {
+		        $('#profile-image-upload').click();
+		    });
+		});       
 }]);

@@ -17,10 +17,9 @@ app.factory('AuthenticationService', AuthenticationService);
     		   url:BASE_URL+'/login/'+username+'/'+password
     		}).success(function (response,data,status,headers,config) {
     			$rootScope.currentuser=response;
-    			console.log(response)
+    			
     			console.log(data)
-    			console.log(status)
-    			if(data!=null){
+    			if(response!=null){
     				
     				 response = { success: true };
                 } else {
@@ -46,13 +45,14 @@ app.factory('AuthenticationService', AuthenticationService);
                  currentUser: {
                      username: username,
                      authdata: authdata,
-                     islogged:true
+                     islogged:true,
+                     role:$rootScope.role
                  }
             };
  
             $http.defaults.headers.common['Authorization'] = 'Basic ' + authdata; // jshint ignore:line
             $cookieStore.put('globals', $rootScope.globals);
-            $cookieStore.put('currentuser',$rootScope.currentuser);
+           
         }
  
         function ClearCredentials() {

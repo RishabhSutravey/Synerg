@@ -26,7 +26,8 @@ app.config(function($routeProvider,$locationProvider) {
     	templateUrl:"Login/Login.html",
     	controller:'LoginController',
     	controllerAs:'vm'
-    }).when("/users",{
+    })
+    .when("/users",{
     	templateUrl: "Friend/AllUsers.html",
     	controller:'alluserctrl'
     })

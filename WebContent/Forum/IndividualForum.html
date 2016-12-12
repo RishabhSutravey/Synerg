@@ -33,11 +33,11 @@
                         </div>  	
                     </fieldset>
                 </form>
-                
-                <h3>4 Comments</h3>
+                 <div data-ng-init="getcomment(iforum.id)">
+                <h3>{{comments.length}} Comments</h3>
                 
                 <!-- COMMENT 1 - START -->
-                <div data-ng-init="getcomment(iforum.id)">
+               
 <div data-ng-repeat="comm in comments">
                 <div class="media">
                     <a class="pull-left" href="#"><img class="media-object" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt=""></a>
