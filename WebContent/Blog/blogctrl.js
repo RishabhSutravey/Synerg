@@ -51,5 +51,14 @@ app.controller('blogcntrl', [ '$scope', '$http', function($scope, $http) {
 		$scope.id=id;
 		$scope.title=title;
 		$scope.content=content;
+	};
+	$scope.like=function(id){
+		$http({
+			method : 'POST',
+			url : BASE_URL + '/likeblog/'+id,
+		}).success(function(data, status, headers, config) {
+			alert("success")
+		})
+		
 	}
 	        }]);

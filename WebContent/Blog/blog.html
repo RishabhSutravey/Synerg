@@ -61,7 +61,10 @@
         		<p>{{blog.content}}</p>
         		<hr>
               <p><button data-ng-click="editblog(blog.id,blog.title,blog.content)">edit</button>
-		<button data-ng-click="deleteblog(blog.id)" class="btn btn-primary btn-danger">delete</button></p>
+		<button data-ng-click="deleteblog(blog.id)" class="btn btn-primary btn-danger">delete</button>
+		<button align="right" class="btn btn-primary" data-ng-click="like(blog.id)">Like</button>
+		<i class="fa fa-thumbs-up"></i>{{blog.bloglike}}</li>
+		</p>
 	        	</div>
         </div></div></div>
 	
