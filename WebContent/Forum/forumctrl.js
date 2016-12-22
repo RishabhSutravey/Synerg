@@ -26,13 +26,12 @@ app.controller('forumctrl', [ '$scope', '$http','$location','$rootScope', functi
 			url : BASE_URL + '/createforum',
 			data : $scope.forum
 		}).success(function(data, status, headers, config) {
-			$scope.name='';
+			/*$scope.name='';
 			$scope.topic='';
 			$scope.userid='';
 			$scope.doc='';
-			$scope.description='';
-		}).error(function(data,status,headers,config){
-			alert("error");
+			$scope.description='';*/
+			
 		});
 	};
 	$scope.deleteforum=function(id){
@@ -58,5 +57,11 @@ app.controller('forumctrl', [ '$scope', '$http','$location','$rootScope', functi
 		}).error(function(data, status, headers, config) {
 			alert("Error");
 		});
+	};
+	$scope.editforum=function(id,name,topic,description){
+		$scope.id=id;
+		$scope.name=name;
+		$scope.topic=topic;
+		$scope.description=description;
 	}
 }]);

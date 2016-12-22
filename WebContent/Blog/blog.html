@@ -18,8 +18,8 @@
 <body data-ng-app="blogapp">
 	
 	<div class="container">
-	<div  data-ng-controller="blogcntrl">
-	<form role="form" class="form-horizontal" action="" data-ng-submit="submit()">
+	<div  >
+	<form role="form" class="form-horizontal" action="" data-ng-submit="submit()" data-ng-controller="blogcntrl">
 	<h2> Create Blog</h2>
 	<input type="hidden" data-ng-model="id" >
 	 <div class="form-group">
@@ -60,8 +60,8 @@
         		<hr>        
         		<p>{{blog.content}}</p>
         		<hr>
-              <p><button data-ng-click="editblog(blog.id,blog.title,blog.content)">edit</button>
-		<button data-ng-click="deleteblog(blog.id)" class="btn btn-primary btn-danger">delete</button>
+              <p><button data-ng-show="blog.userid==globals.currentUser.username" data-ng-click="editblog(blog.id,blog.title,blog.content)" class="btn btn-success">edit</button>
+		<button data-ng-show="blog.userid==globals.currentUser.username" data-ng-click="deleteblog(blog.id)" class="btn btn-primary btn-danger">delete</button>
 		<button align="right" class="btn btn-primary" data-ng-click="like(blog.id)">Like</button>
 		<i class="fa fa-thumbs-up"></i>{{blog.bloglike}}</li>
 		</p>

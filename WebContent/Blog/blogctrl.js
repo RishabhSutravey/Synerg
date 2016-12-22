@@ -1,5 +1,5 @@
 var app=angular.module("blogapp",[])
-app.controller('blogcntrl', [ '$scope', '$http', function($scope, $http) {
+app.controller('blogcntrl', [ '$scope', '$http',function($scope, $http) {
 	var BASE_URL = 'http://localhost:8083/CollabServer';
 
 	$scope.getAllBlogs= function() {
@@ -9,14 +9,17 @@ app.controller('blogcntrl', [ '$scope', '$http', function($scope, $http) {
 			url : BASE_URL+'/blog'
 		}).success(function(data, status, headers, config) {
 			$scope.blogs=data;
-			//alert(data); 
+			angular.forEach($scope.blogs, function(value, key){
+			      //if(value.Password == "thomasTheKing")
+				var user=value.userid
+			         console.log(user);
+			   });
 		}).error(function(data, status, headers, config) {
 			alert("Error");
 		});
 	};
 	$scope.submit = function() {
 		console.log("create blog")
-		
 		$scope.blog = {	
 			id:$scope.id,
 			title : $scope.title,
@@ -29,14 +32,12 @@ app.controller('blogcntrl', [ '$scope', '$http', function($scope, $http) {
 			url : BASE_URL + '/createblog',
 			data : $scope.blog
 		}).success(function(data, status, headers, config) {
-			$scope.id='';
+			/*$scope.id='';
 			$scope.title='';
 			$scope.userid='';
 			$scope.doc='';
 			$scope.content='';
-			$scope.getAllBlogs();
-		}).error(function(data,status,headers,config){
-			alert("error");
+			$location.url($location.path());*/
 		});
 	};
 	$scope.deleteblog=function(id){

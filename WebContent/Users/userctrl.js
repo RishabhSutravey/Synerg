@@ -39,7 +39,7 @@ app.controller('userctrl', [ '$scope', '$http','$rootScope','$cookieStore', func
 			url:BASE_URL+'/oneuser'
 		}).success(function(data,status,headers,config){
 			$scope.oneuser=data;
-			$scope.img = data.image
+			$scope.img = data.image;
 		})
 	};
 	$scope.uploadFile = function(files) {
